@@ -32,8 +32,9 @@ def populate():
 	for student in students_list:
 		for key, val in student.items():
 			s = add_student(student)
-			for cat in student['cats']:
-				add_cat(s, cat)
+			if "cats" in student.keys():
+				for cat in student['cats']:
+					add_cat(s, cat)
 
 def add_cat(owner, name): 
 		c = Cat.objects.get_or_create(owner=owner, name=name)[0] 
