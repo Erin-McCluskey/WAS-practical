@@ -28,7 +28,7 @@ SECRET_KEY = 'y98%5$pfq0y4^otwbpet7^@!_f^5&88e@9lcug^4i(m(a#+w1^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['emccluskey.pythonanywhere.com']
 
 
 # Application definition
