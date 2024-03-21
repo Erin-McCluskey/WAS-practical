@@ -8,21 +8,25 @@ from cats.models import Student, Cat
 
 def populate():
 	students = Student.objects.order_by('last_name')
+	cats = Cat.objects.order_by('name')
+
 	students_list = []
+	cats_list = {}
 
 	for student in students:
-		students_list.append({"first_name": student.first_name, "last_name": student.last_name, "num_cats": student.num_cats})
-	
+		students_list.append({"first_name": student.first_name, "last_name": student.last_name})
+
 	population_data = [
-		{'first_name': 'Alyssa', 'last_name': 'Croft', 'num_cats':3, 'cats':['Alex', 'Luna', 'Mittens']},
-		{'first_name': 'John', 'last_name': 'Doe', 'num_cats':1, 'cats':['Muffins']},
-		{'first_name': 'Azam', 'last_name': 'Khan', 'num_cats':2, 'cats':['Jill', 'Joe']},
+		{'first_name': 'Alyssa', 'last_name': 'Croft','cats':['Alex', 'Luna', 'Mittens']},
+		{'first_name': 'John', 'last_name': 'Doe', 'cats':['Muffins']},
+		{'first_name': 'Azam', 'last_name': 'Khan', 'cats':['Jill', 'Joe']},
 	]
 	
 	for fake_student in population_data:
 		if fake_student in students_list:
 			continue
 		else:
+			fake_student.update({"num_cats":len(fake_student['cats'])})
 			students_list.append(fake_student)
 
 	for student in students_list:

@@ -10,6 +10,11 @@ def index(request):
     context_dict = {}
     context_dict['students'] =  student_list
     context_dict['cats'] = cats_list
+    
+    for student in student_list:
+        student.num_cats = Cat.objects.filter(owner=student).count()
+        student.save()
+
     return render(request, 'cats/index.html', context=context_dict)
 
 def about(request):
