@@ -41,7 +41,7 @@ def add_cat(owner, name):
 		return c 				
 				
 def add_student(student): 
-	s = Student.objects.get_or_create(first_name = student['first_name'], last_name = student['last_name'], num_cats= student['num_cats'])[0]
+	s = Student.objects.get_or_create(first_name = student['first_name'], last_name = student['last_name'])[0]
 	s.save() 
 	return s
 
