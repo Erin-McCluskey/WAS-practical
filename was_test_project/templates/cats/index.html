@@ -3,31 +3,43 @@
 <html>
 	<head>
 		<title>Index</title>
-        <link rel="stylesheet" href="{% static "css/index.css" %}" />
+        <link rel="stylesheet" href="{% static "css/base.css" %}" />
 	</head>
 
 	<body>
-        <img src="{% static 'images/cat.jpg'%}" alt="Picture of a cat"/>
+        <div>
+        <img src="{% static 'images/cat.jpg'%}" alt="Picture of a cat" class="center"/>
+        </div>
 
-		<h1>The students and their cats are: </h1>
-		<div>
+        <div class="invert">
+		<h1 class="center">The students and their cats are: </h1>
+        </div>
+
         {% if students %}
             <ul>
                 {% for student in students %}
-                <li>{{ student.first_name }} {{student.last_name}} has {{student.num_cats}} cats</li>
-                    {% for cat in cats %}   
+                <div>
+                <li>{{ student.first_name }} {{student.last_name}} has <strong>{{student.num_cats}}</strong> 
+                    {% if student.num_cats == 1%}
+                        cat </span>
+                    {% else %}
+                        cats </span>
+                    {% endif %}
+                </div>
+
+                    <div>
+                    {% for cat in cats %}  
                         {% if student == cat.owner %}
                             <ul>
                             <li>{{ cat }}</li>
                             </ul>
                             {% endif %}
                     {% endfor %}
+                </div>
                 {% endfor %}
             </ul>
 		{% endif %}
-        </div>
-		<div>
-			<a href="/cats/about/">About Pets of Students</a><br />
+			<a href="/cats/about/">About Pets of Students </a><br />
 		</div>
 	</body>
 </html>

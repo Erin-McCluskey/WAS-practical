@@ -1,0 +1,31 @@
+body {
+    background-color: #F0F8FF;
+  }
+
+div {
+    border-style: double;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+  }
+
+.invert {
+    background-color: black;
+    color: #F0F8FF
+  }
+
+.collapse{
+    display: inline-block;
+}
+
+.collapse-content{
+    display:none;
+}
+
+.collapse:hover .collapse-content{
+    display: block;
+}

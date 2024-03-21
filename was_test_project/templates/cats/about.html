@@ -3,12 +3,18 @@
 <html>
 	<head>
 		<title>Index</title>
+		<link rel="stylesheet" href="{% static "css/base.css" %}" />
 	</head>
 
 	<body>
-        <img src="{% static 'images/cats_with_fire.jpg'%}" alt="Picture of a cat"/>
+		<div>
+        <img src="{% static 'images/cats_with_fire.jpg'%}" alt="Picture of a cat" class="center"/>
+		</div>
 
-		<h1>All the cats are: </h1>
+		<div class="invert">
+		<h1 class="center">All the cats are: </h1>
+		</div>
+
 		<div>
         {% if cats %}
             <ul>
